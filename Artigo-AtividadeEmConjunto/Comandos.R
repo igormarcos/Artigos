@@ -1,7 +1,9 @@
 ## INSTALACAO DE GGPLOT2 ##
 
 install.packages("ggplot2")
-library(ggplot2)
+library("ggplot2")
+library("ggthemes")
+library("scales")
 
 ## IMPORTAR TABELA ##
 
