@@ -1,0 +1,326 @@
+\documentclass[10pt]{beamer}
+\usetheme[]{AAUsidebar}
+  
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{url}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{multicol}
+\pdfstringdefDisableCommands{%
+  \def\\{}%
+  \def\texttt#1{<#1>}%
+}
+
+\newenvironment<>{varblock}[2][.9\textwidth]{%
+    \setlength{\textwidth}{#1}
+    \begin{actionenv}#3%
+        \def\insertblocktitle{#2}%
+        \par%
+        \usebeamertemplate{block begin}}
+    {\par%
+        \usebeamertemplate{block end}%
+    \end{actionenv}}
+
+\usepackage {tikz}
+\usetikzlibrary {positioning}
+\definecolor {processblue}{cmyk}{150,0,155,0}
+
+\newcommand{\chref}[2]{
+  \href{#1}{{\usebeamercolor[bg]{aau sidebar}#2}}
+}
+
+\title[Variáveis Significativas IDH]{Variáveis Significativas para o Índice de Desenvolvimento Humano no Brasil}
+
+%\subtitle{}
+
+\author[Igor Marcos ] {
+  Igor Marcos A. de Oliveira | @igormaoliveira {\\
+  \texttt{im@igormarcos.com.br}}
+}
+
+\institute[{\includegraphics[scale=0.6]{AAUgraphics/aau_logo_new_circle-LACCAN}}] {
+  Laboratório de Computação Científica e Análise Numérica - LaCCAN \\
+  Universidade Federal de Alagoas - UFAL \\
+  Instituto de Computação - IC
+}
+\date[\today]{Modelagem Computacional de Conhecimento \\
+{\normalsize 24 de Abril de 2016}
+}
+% specify a logo on the titlepage (you can specify additional logos an include them in 
+% institute command below
+\pgfdeclareimage[height=1.0cm]{titlepagelogo}{AAUgraphics/aau_logo_new_circle-UFAL}
+
+\pgfdeclareimage[height=1.0cm]{titlepagelogo2}{AAUgraphics/aau_logo_new_circle-IC}
+
+\pgfdeclareimage[height=1.0cm]{titlepagelogo3}{AAUgraphics/aau_logo_new_circle-LACCAN}
+
+\pgfdeclareimage[height=1.0cm]{titlepagelogo4}{AAUgraphics/aau_logo_new_circle-MODELAGEM}% placed on the title page
+%\pgfdeclareimage[height=1.5cm]{titlepagelogo2}{graphics/aau_logo_new} % placed on the title page
+\titlegraphic{% is placed on the bottom of the title page
+  \pgfuseimage{titlepagelogo}
+ \hspace{0.3cm}\pgfuseimage{titlepagelogo2}
+ \hspace{0.3cm}\pgfuseimage{titlepagelogo3}
+ \hspace{0.3cm}\pgfuseimage{titlepagelogo4}
+}
+
+\begin{document}
+{\aauwavesbg
+\begin{frame}[plain]
+  \titlepage
+\end{frame}}
+
+% \begin{frame}{Roteiro}{}
+% 	\tableofcontents
+% \end{frame}
+
+\section{A origem.}
+\begin{frame}{A origem}{do Índice de Desenvolvimento Humano (IDH).}
+
+\begin{itemize}
+			\item 1990, Programa das Nações Unidas (PNUD).
+			\item Relatório de Desenvolvimento Humano (RDH).
+			\item Prêmio Nobel de Economia de 1998.
+            \item Medida global da qualidade de vida e bem estar social.
+		\end{itemize}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{Images/Mahbub-ul-Haq.jpg} \quad
+\includegraphics[scale=0.2]{Images/Amartya-Sen.jpg}
+\caption{Mahbub ul Haq e Amartya Sen, 1990}
+\label{Mahbub ul Haq e Amartya Sen, 1990}
+\end{figure}
+
+\emph{"Desviar o foco do desenvolvimento da economia e da contabilidade de renda nacional para políticas centradas em pessoas."\cite{Haq1995}}
+
+\end{frame}
+
+\section{Cálculo do IDH.}
+\begin{frame}{Cálculo do IDH.}
+
+\begin{enumerate}
+			\item EV - Expectativa de Vida.
+			\item IE - Índice de Educação.
+			\item IR - Índice de Renda (Paridade do Poder de Compra).
+		\end{enumerate}
+\vspace{15pt}        
+\begin{center}
+            \begin{minipage}{4cm}
+                \begin{varblock}[4cm]{}
+                    $IDH = \sqrt[3] {EV \cdot IE \cdot IR}$
+                \end{varblock}
+            \end{minipage}
+           \end{center}
+
+\end{frame}
+
+\section{Questionamento.}
+\begin{frame}{Questionamento.}
+
+\begin{itemize}
+			\item Qual o impacto que a violência tem no IDH do Brasil?
+		\end{itemize}
+
+\vspace{20pt}
+\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.4]{Images/violencia-urbana.jpg}
+		\label{Violência Urbana}
+	\end{figure}
+
+\end{frame}
+
+\section{Os dados.}
+\begin{frame}{Os dados.}
+
+\begin{itemize}
+			\item Atlas Brasil.
+            \item Fórum Brasileiro de Segurança Pública.
+            \item Instituto de Pesquisa Econômica Aplicada - IPEA
+            \item Instituto Brasileiro de Geografia e Estatística - IBGE
+		\end{itemize} 
+        
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Images/Fontes.png}
+\label{Sites DataSets}
+\end{figure}
+\end{frame}
+
+\section{As Variáveis.}
+\begin{frame}{As Variáveis.}
+
+\begin{itemize}
+			\item IDHM.
+            \item Esperança de Vida.
+            \item Renda.
+            \item Celular.
+            \item Transporte.
+            \item Habitantes.
+            \item Violência.
+		\end{itemize} 
+        
+\vspace{15pt}        
+\begin{center}
+            \begin{minipage}{4cm}
+                \begin{varblock}[4cm]{Repositório:}
+                    https://github.com/igormarcos/Artigos
+                \end{varblock}
+            \end{minipage}
+           \end{center}
+\end{frame}
+
+\section{Regressão Linear.}
+\begin{frame}{Regressão Linear.}{IDHM x Variáveis}
+
+\begin{table}[H]
+\centering
+\caption{Resultado da estimação por MQO}
+\label{tabela_estimativas_MQO}
+\begin{tabular}{lccl}
+\hline
+\multicolumn{1}{c}{\textbf{Variáveis}}                                          & \textbf{F-Stastistic} & \textbf{R$^2$} & \textbf{\begin{tabular}[c]{@{}c@{}}Nível de Significância\\ P-Valor\end{tabular}} \\ \hline
+\textit{\textbf{Renda}}                                                         & 210.6                 & 0.8939      & 1.102e-13                                                                           \\
+\textit{\textbf{Violência}}                                                     & 11.03                 & 0.3061      & 0.00276                                                                           \\
+\textit{\textbf{Habitantes}}                                                 & 3.997                 & 0.1378      & 0.05656                                                                           \\
+\textit{\textbf{Transporte}}                                                    & 17.06                 & 0.4057      & 0.0003537                                                                           \\
+\textit{\textbf{Celular}}                                                      & 77.17                 & 0.7553      & 4.096e-9                                                                           \\
+\textit{\textbf{\begin{tabular}[c]{@{}l@{}}Esperança\\ de vida\end{tabular}}} & 338.1                 & 0.9312      & 4.856e-16                                                                           \\ \hline
+\end{tabular}
+\rightline{\textbf{Fonte: Autor.}}
+\end{table}
+      
+\end{frame}
+
+\begin{frame}{Regresão Linear.}{IDHM x Variáveis.}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.16]{Images/LM-IDHMxESPVIDA.png} \quad
+\includegraphics[scale=0.16]{Images/LM-IDHMxRENDA.png} \quad
+\includegraphics[scale=0.16]{Images/LM-IDHMxCELULAR.png} \quad
+\includegraphics[scale=0.16]{Images/QQNORM-IDHMxESPVIDA.png} \quad
+\includegraphics[scale=0.16]{Images/QQNORM-IDHMxRENDA.png} \quad
+\includegraphics[scale=0.16]{Images/QQNORM-IDHMxCELULAR.png} \quad
+\caption{Gráficos Regressão Linear e Resíduos}
+\label{Gráficos Regressão Linear e Resíduos}
+\end{figure}
+      
+\end{frame}
+
+\section{Correlação de Pearson.}
+\begin{frame}{Correlação}{de Pearson.}
+\begin{table}[H]
+\centering
+\caption{Correlação de Pearson de IDHM}
+\label{Correlação de Pearson de IDHM}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\multicolumn{1}{c}{\textbf{Variáveis}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Correlação de \\ Pearson\end{tabular}}} \\ \midrule
+\textit{\textbf{Renda}}                & 0.945466                                                                                      \\
+\textit{\textbf{Esperança de vida}}              & 0.9649639                                                                                     \\
+\textit{\textbf{Celular}}              & 0.8690818                                                                                     \\
+\textit{\textbf{Transporte}}           & 0.6369302                                                                                     \\
+\textbf{Habitantes}                    & 0.3712707                                                                                     \\
+\textbf{Violência}                     & -0.5532908                                                                                    \\ \bottomrule
+\end{tabular}
+\rightline{\textbf{Fonte: Autor.}}
+\end{table}
+\end{frame}
+
+\begin{frame}{Correlação}{Heat Map - Mapa de Calor}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Images/COR-Tabela.png}
+\caption{Heat Map - Mapa de Calor.}
+\label{Heat Map - Mapa de Calor.}
+\end{figure}
+\end{frame}
+
+\section{Regressão Linear Multivariada.}
+\begin{frame}{Regreção Linear Multivariada}{IDHM x (RENDA + CELULAR + ESPVIDA)}
+\begin{table}[H]
+\centering
+\caption{Regressão Linear RENDA + CELULAR + ESPVIDA}
+\label{Regressão Linear RENDA + CELULAR + ESPVIDA}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+\multicolumn{5}{c}{\textbf{LM - IDHM $\sim$ RENDA + CELULAR + ESPVIDA}}                                          \\ \midrule
+\multicolumn{5}{c}{\textbf{Resíduos}}                                                                            \\
+\textbf{Min}         & \textbf{1Q}       & \textbf{Median}     & \textbf{3Q}      & \textbf{Max}                 \\
+-0.0252268           & -0.0074518        & 0.0006573           & 0.0068847        & 0.0138412                    \\
+\multicolumn{5}{c}{\textit{\textbf{Coeficientes}}}                                                               \\
+\textit{\textbf{}}   & \textbf{Estimado} & \textbf{Std. Error} & \textbf{t value} & \textbf{Pr(\textgreater|t|)} \\
+\textbf{(Intercept)} & -5.359e-01        & 1.705e-01           & -3.142           & 0.004564 **                  \\
+\textbf{RENDA}       & 5.017e-05         & 1.193e-05           & 4.207            & 0.000336 ***                 \\
+\textbf{CELULAR}     & 1.745e-04         & 4.506e-04           & 0.387            & 0.702021                     \\
+\textbf{ESPVIDA}     & 1.597e-02         & 2.564e-03           & 6.229            & 2.35e-06 ***                 \\
+\multicolumn{5}{l}{Signif. codes:     0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1}                            \\
+\multicolumn{5}{l}{Residual standard error: 0.009889 on 23 degrees of freedom}                                   \\
+\multicolumn{5}{l}{Multiple R-squared: 0.9654      Adjusted R-squared: 0.9609}                                   \\
+\multicolumn{5}{l}{F-statistic: 214.1 on 3 and 23 DF      p-value: \textless 2.2e-16}                            \\ \bottomrule
+\end{tabular}
+\rightline{\textbf{Fonte: Autor.}}
+\end{table}
+\end{frame}
+
+\section{Paradoxo.}
+\begin{frame}{Paradoxo.}{Precisamos de muito para elevar o IDH no Brasil?}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Images/Ranking.png}
+\caption{IDH 2016 - Fonte: PNUD.}
+\label{IDH 2016 - Fonte: PNUD.}
+\end{figure}
+
+\end{frame}
+
+\section{Paradoxo.}
+\begin{frame}{Paradoxo.}{Precisamos de muito para elevar o IDH no Brasil?}
+
+\begin{itemize}
+\item Acréscimo nas variáveis explicativas podem resultar em melhora do IDH.
+\item Reflexão sobre a qualidade de vida da população.
+\item Muitas famílias tem apenas o básico para sobreviver.
+\item Políticas e ações públicas coordenadas.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Obrigado!}{}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.23]{Images/the-end.jpg}
+\label{The End.}
+\end{figure}
+
+\end{frame}
+
+\section{Referências.}
+\begin{frame} 
+\frametitle{Referências.}
+\nocite{Haq1995}
+\nocite{Licia2009}
+\nocite{loureiroimpacto}
+\nocite{Liana2015}
+\nocite{Luciana2007}
+\nocite{Ferreira2015}
+\nocite{Cruz2016}
+\nocite{Ipea2017}
+\nocite{IBGE2017}
+\nocite{Atlas2017}
+\nocite{PNUD2017}
+\nocite{FBSP2017}
+\nocite{RepoIgor2017}
+
+\tiny{
+\bibliography{ref.bib}
+\bibliographystyle{IEEEtran}
+}
+
+\end{frame}
+
+\end{document}
