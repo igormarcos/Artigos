@@ -1,0 +1,230 @@
+\documentclass[10pt,foldmark,notumble]{leaflet}
+\renewcommand*\foldmarkrule{.3mm}
+\renewcommand*\foldmarklength{5mm}
+
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{url}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{mathptmx}
+\usepackage{booktabs}
+\usepackage[scaled=0.9]{helvet}
+\makeatletter
+\def\ptmTeX{T\kern-.1667em\lower.5ex\hbox{E}\kern-.075emX\@}
+\DeclareRobustCommand{\ptmLaTeX}{L\kern-.3em
+        {\setbox0\hbox{T}%
+         %\vb@xt@ % :-)
+         \vbox to\ht0{\hbox{%
+                            \csname S@\f@size\endcsname
+                            \fontsize\sf@size\z@
+                            \math@fontsfalse\selectfont
+                            A}%
+                      \vss}%
+        }%
+        \kern-.12em
+        \ptmTeX}
+\makeatother
+\let\TeX=\ptmTeX
+\let\LaTeX=\ptmLaTeX
+\usepackage{shortvrb}
+\MakeShortVerb{\|}
+\usepackage{graphicx}
+\usepackage[dvipsnames,usenames]{color}
+\definecolor{LIGHTGRAY}{gray}{.9}
+\usepackage{pdfpages}
+
+%%%%\renewcommand{\descfont}{\normalfont}
+\newcommand\Lpack[1]{\textsf{#1}}
+\newcommand\Lclass[1]{\textsf{#1}}
+\newcommand\Lopt[1]{\texttt{#1}}
+\newcommand\Lprog[1]{\textit{#1}}
+
+\newcommand*\defaultmarker{\textsuperscript\textasteriskcentered}
+
+
+\title{\bf Variáveis Significativas para o Índice de Desenvolvimento Humano no Brasil}
+\author{
+Igor Marcos A. de Oliveira \\ \emph{im@igormarcos.com.br}
+}
+\date{24 de Abril de 2016}
+\CutLine*{1}% Dotted line without scissors
+\CutLine*{6}%  Dotted line with scissors
+
+%\AddToBackground{1}{%  Background of a small page
+%  \put(0,0){\textcolor{Cerulean}{\rule{\paperwidth}{\paperheight}}}}
+
+
+%\AddToBackground{1}{%  Background of a small page
+% \put(115,530){\includegraphics[scale=0.12]{tiger.eps}}}
+
+
+\AddToBackground{6}{%  Background of a small page
+  \put(0,0){\textcolor{RoyalBlue}{\rule{\paperwidth}{\paperheight}}}}
+
+
+\AddToBackground*{2}{% Background of a large page
+  \put(\LenToUnit{.5\paperwidth},\LenToUnit{.5\paperheight}){%
+    \makebox(0,0)[c]{%
+      \resizebox{.9\paperwidth}{!}{\rotatebox{35.26}{%
+        \textsf{\textbf{\textcolor{LIGHTGRAY}{UFAL}}}}}}}}
+
+
+\begin{document}
+\maketitle
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=1.5cm]{Images/aau_logo_new_circle-UFAL.pdf} \quad
+\includegraphics[height=1.5cm]{Images/aau_logo_new_circle-IC.pdf} \quad
+\includegraphics[height=1.5cm]{Images/aau_logo_new_circle-LACCAN.pdf} \quad
+\includegraphics[height=1.5cm]{Images/aau_logo_new_circle-MODELAGEM.pdf}
+\label{logo}
+\end{figure}
+
+\section{Resumo} Dia após dia a preocupação com o bem-estar social se torna essencial para definir qual o melhor país para se viver, mensurar o bem-estar social se tornou essencial por este motivo que o índice de desenvolvimento humano foi desenvolvido, ranqueando os melhores locais para se viver. Nosso objetivo neste trabalho visa testar algumas variáveis socioeconômicas que podem influenciar na qualidade de vida da população brasileira. Para concretizar o estudo utilizamos a média do Índice de Desenvolvimento Humano Municipal (IDHM) para cada unidade federativa do Brasil e mais seis variáveis socioeconômicas como explicativas.
+Houveram três variáveis que obtiveram resultados estatísticos significativos a 5\%, dando margem a interpretação de que alterações minimas no conjunto das variáveis podem resultar em mudanças no IDHM. Consideramos desta forma que se forem elaboradas estratégias para implantação de políticas publicas adequadas que tenham como objetivo a melhoria da qualidade de vida da população, certamente alcançaremos melhores valores no Índice de Desenvolvimento Humano no futuro.
+
+A qualidade de vida da população está sempre nos assuntos mais discutidos no mundo inteiro, e para mensurar esta qualidade de vida foi criado em 1990, o Índice de Desenvolvimento Humano (IDH) pelo economista Mahbub ul Haq\cite{PNUD2017}\cite{Licia2009}\cite{loureiroimpacto}, usado como métrica padrão no Programa das Nações Unidas para o Desenvolvimento (PNUD) que publica anualmente o Relatório de Desenvolvimento Humano (RDH) com dados de IDH de vários países, formando um ranking\cite{PNUD2017} que tem a finalidade de: \emph{"desviar o foco do desenvolvimento da economia e da contabilidade de renda nacional para políticas centradas em pessoas\cite{Haq1995}".}
+A partir de 2010, o IDH contemplou três dimensões\cite{Atlas2017}\cite{Licia2009}:
+
+\begin{enumerate}
+\item  {\textbf{Vida Longa e Saudável:} Relacionado a longevidade e comumente expressado nos relatórios como expectativa de vida ao nascer.}
+\item  {\textbf{Padrão de Vida Descente:} Comumente relacionado à renda per capta, como existem diferenças do poder de compra entre países e suas moedas, o IDH utiliza a paridade do poder de compra, eliminando as diferenças.\cite{Licia2009}}
+\item  {\textbf{Acesso ao Conhecimento:} Neste parâmetro observamos o tempo em que o indivíduo tem de estudo em relação ao tempo necessário para o estudo.}
+\end{enumerate}
+
+O Brasil utiliza o Índice de Desenvolvimento Humano Municipal (IDHM), que é uma aplicação do IDH em escala municipal, para calcular e avaliar de forma pioneira, o desenvolvimento dos municípios dos estados brasileiros, sendo este um índice padrão desde 1991 indexado pelo IBGE a cada década. Um município que possui um IDHM entre 0 e 0,5 é considerado baixo, entre 0,5 e 0,8 médio e alto entre 0,8 e 1.\cite{IBGE2017}\cite{Atlas2017}
+
+\section{Cálculo IDH}
+
+\begin{enumerate}
+			\item EV - Expectativa de Vida.
+			\item IE - Índice de Educação.
+			\item IR - Índice de Renda (Paridade do Poder de Compra).
+		\end{enumerate}
+\vspace{15pt}        
+\begin{center}
+                    $IDH = \sqrt[3] {EV \cdot IE \cdot IR}$
+           \end{center}
+
+\pagebreak
+
+\section{Conjunto de Dados}
+
+\begin{itemize}
+			\item Atlas Brasil.
+            \item Fórum Brasileiro de Segurança Pública.
+            \item Instituto de Pesquisa Econômica Aplicada - IPEA
+            \item Instituto Brasileiro de Geografia e Estatística - IBGE
+		\end{itemize} 
+        
+% \begin{figure}[H]
+% \centering
+% \includegraphics[height=5cm]{Images/Fontes.png} \quad
+% \label{DataSets}
+% \end{figure}
+
+Todos os dados obtidos estão disponíveis no repositório\cite{RepoIgor2017} no GitHub. Para obtenção dos resultados utilizamos o \emph{RStudio Versão 1.0.136 for Mac OSX 10.12.4}, que também estão disponíveis no repositório\cite{RepoIgor2017} juntamente com os comandos utilizados no laboratório. O objetivo deste estudo é verificar a contribuição de algumas variáveis que podem influenciar na qualidade de vida da população brasileira, assumimos neste modelo como variável dependente IDHM, expresso em valores decimais entre 0 e 1 e como variável independente:
+
+\begin{itemize}
+\item {\textbf{Renda}, utilizamos a renda per capta que é a razão entre a renda total familiar per capta de todos os domicílios e o número total de domicílios do estado, estes valores são expressos em Reais, moeda corrente do Brasil.}
+\item {\textbf{Violência}, representa a taxa média de mortes violentas intencionais para cada unidade federativa do Brasil, esta taxa é expressa em valores para cada cem mil habitantes.}
+\item {\textbf{Esperança de Vida}, representa o número médio em anos que o indivíduo deve viver ao nascer.}
+\item {\textbf{Transporte}, representa o percentual de pessoas que vivem em domicílios com automóvel seja utilizado para passeio ou locomoção dos membros da família para o trabalho.}
+\item {\textbf{Telefone}, representa a proporção de pessoas que possuem telefone com ou sem acesso a internet do estado.}
+\end{itemize}
+
+\section{Resultados}
+
+Para obter os resultados utilizamos o método dos mínimos quadrados ordinários (MQO) ajustando o modelo para a obtenção dos dados dispostos na tabela ao lado, com intervalo de confiança de 95\% e efetuamos a correlação de Pearson entre IDHM e as demais variáveis.
+
+\begin{table}[H]
+\centering
+\caption{Resultado da estimação por MQO}
+\label{tabela_estimativas_MQO}
+\begin{tabular}{lccl}
+\hline
+\multicolumn{1}{c}{\textbf{Variáveis}}                                          & \textbf{F-Stastistic} & \textbf{R$^2$} & \textbf{\begin{tabular}[c]{@{}c@{}}Nível de Significância\\ P-Valor\end{tabular}} \\ \hline
+\textit{\textbf{Renda}}                                                         & 210.6                 & 0.8939      & 1.102e-13                                                                           \\
+\textit{\textbf{Violência}}                                                     & 11.03                 & 0.3061      & 0.00276                                                                           \\
+\textit{\textbf{Habitantes}}                                                 & 3.997                 & 0.1378      & 0.05656                                                                           \\
+\textit{\textbf{Transporte}}                                                    & 17.06                 & 0.4057      & 0.0003537                                                                           \\
+\textit{\textbf{Celular}}                                                      & 77.17                 & 0.7553      & 4.096e-9                                                                           \\
+\textit{\textbf{\begin{tabular}[c]{@{}l@{}}Esperança\\ de vida\end{tabular}}} & 338.1                 & 0.9312      & 4.856e-16                                                                           \\ \hline
+\end{tabular}
+\rightline{\textbf{Fonte: Autor.}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Correlação de Pearson de IDHM}
+\label{Correlação de Pearson de IDHM}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\multicolumn{1}{c}{\textbf{Variáveis}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Correlação de \\ Pearson\end{tabular}}} \\ \midrule
+\textit{\textbf{Renda}}                & 0.945466                                                                                      \\
+\textit{\textbf{Esperança de vida}}              & 0.9649639                                                                                     \\
+\textit{\textbf{Celular}}              & 0.8690818                                                                                     \\
+\textit{\textbf{Transporte}}           & 0.6369302                                                                                     \\
+\textbf{Habitantes}                    & 0.3712707                                                                                     \\
+\textbf{Violência}                     & -0.5532908                                                                                    \\ \bottomrule
+\end{tabular}
+\rightline{\textbf{Fonte: Autor.}}
+\end{table}
+
+\begin{figure}[H]
+\center
+{\includegraphics[scale=0.391]{Images/COR-Tabela.png}}
+\caption{Mapa de calor de correlação entre as variáveis.}
+\label{COR-Tabela}
+\end{figure}
+
+Na figura acima observamos o \emph{Heat Map}, mapa de calor, nele verificamos as correlações entre as variáveis onde as cores mais intensas identificam as variáveis com maior correlação.
+
+Tendo o Índice de Desenvolvimento Humano Municipal (IDHM) como uma variável dependente para mensurar a qualidade de vida da população dos estados brasileiros, entre as seis variáveis escolhidas para como explicativas para IDHM, três se mostraram estatisticamente significativas a 5\%: 
+\begin{enumerate}
+\item {\textbf{Esperança de Vida} obteve \emph{R$^2$=0.9312}, indica que cerca de 93\% da variação de IDHM é explicada por Esperança de Vida e obteve uma correlação alta de \emph{0.9649} cerca de 96\%}
+\item {\textbf{Renda} obteve \emph{R$^2$=0.8939}, indica cerca de 89\% de variação do IDHM e obteve correlação \emph{0.9454} cerca de 94\%}
+\item {\textbf{Celular} que obteve \emph{R$^2$=07553} cerca de 75\% da variação de IDHM e resultando em uma correlação de \emph{0.8690} cerca de 86\%}
+\end{enumerate}
+Todos estes dados são observados nas tabelas nas tabelas anteriores.
+
+\section{Conclusão}
+
+De acordo com os dados expostos constatamos que um acréscimo de \emph{0.5 à 1\%} nas variáveis explicativas de qualidade de vida da população dos estados brasileiros, podem levar a um aumento no IDHM, o que nos leva a uma reflexão sobre a qualidade de vida atual do povo brasileiro, onde grande parte da população dos municípios apenas detém o mínimo para atender suas necessidades básicas, levando-nos assim a afirmar que qualquer melhoria certamente levará a um aumento considerável na qualidade de vida desta população.
+
+
+\vspace{60pt}
+\footnote{Igor Marcos faz parte do Laboratório de Computação Científica e Análises Numéricas - LaCCAN, Universidade Federal de Alagoas - UFAL, Maceió,
+AL, e-mail: im@igormarcos.com.br .}
+\nocite{Haq1995}
+\nocite{Licia2009}
+\nocite{loureiroimpacto}
+\nocite{Liana2015}
+\nocite{Luciana2007}
+\nocite{Ferreira2015}
+\nocite{Cruz2016}
+\nocite{Ipea2017}
+\nocite{IBGE2017}
+\nocite{Atlas2017}
+\nocite{PNUD2017}
+\nocite{FBSP2017}
+\nocite{RepoIgor2017}
+\pagebreak
+
+\textcolor{white}{
+\footnotesize{
+		\bibliography{ref.bib}
+		\bibliographystyle{IEEEtran}
+	}
+   }
+\vspace{50pt}
+\begin{figure}[H]
+\center
+{\includegraphics[scale=0.9]{Images/aau_logo_new_circle-UFAL.pdf}}
+\label{UFAL}
+\end{figure}
+\end{document}
